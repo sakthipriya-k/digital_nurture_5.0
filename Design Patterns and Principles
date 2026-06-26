@@ -129,3 +129,201 @@ OCP	Extend without modifying
 LSP	Child should replace parent safely
 ISP	Small and focused interfaces
 DIP	Depend on abstraction
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Commonly Used Design Patterns
+Overview
+
+Design Patterns are reusable solutions to common software design problems. They improve code reusability, flexibility, maintainability, and scalability.
+
+Design Patterns are mainly classified into:
+
+Creational Patterns
+Structural Patterns
+Behavioral Patterns
+Architectural Patterns
+
+
+2.1 Creational Patterns
+
+Creational Patterns focus on object creation.
+
+A) Singleton Pattern
+Meaning
+
+Ensures that only one object of a class exists.
+
+Java Example
+class Database {
+
+    private static Database instance =
+            new Database();
+
+    private Database(){}
+
+    public static Database getInstance(){
+        return instance;
+    }
+}
+Use Cases
+Database connection
+Logger
+Configuration manager
+B) Factory Method Pattern
+Meaning
+
+Creates objects without exposing object creation logic.
+
+Java Example
+interface Animal {
+    void sound();
+}
+
+class Dog implements Animal {
+
+    public void sound(){
+        System.out.println("Bark");
+    }
+}
+Use Cases
+Object creation based on conditions
+Framework development
+C) Builder Pattern
+Meaning
+
+Constructs complex objects step by step.
+
+Java Example
+class User {
+
+    String name;
+
+    User(String name){
+        this.name = name;
+    }
+}
+
+class UserBuilder {
+
+    String name;
+
+    UserBuilder setName(String name){
+        this.name = name;
+        return this;
+    }
+
+    User build(){
+        return new User(name);
+    }
+}
+Use Cases
+Large constructors
+Complex object creation
+
+
+2.2 Structural Patterns
+
+Structural Patterns focus on organizing classes and objects.
+
+A) Adapter Pattern
+Meaning
+
+Allows incompatible classes to work together.
+
+Example
+
+Phone charger adapter.
+
+Use Cases
+Third-party library integration
+B) Decorator Pattern
+Meaning
+
+Adds additional functionality dynamically.
+
+Example
+
+Coffee + Milk + Sugar
+
+Use Cases
+Feature extension
+C) Proxy Pattern
+Meaning
+
+Controls access to another object.
+
+Example
+
+ATM → Bank Server
+
+Use Cases
+Security
+Access control
+
+
+2.3 Behavioral Patterns
+
+Behavioral Patterns focus on object communication.
+
+A) Observer Pattern
+Meaning
+
+One object notifies multiple objects.
+
+Example
+
+YouTube notifications.
+
+Use Cases
+Event systems
+Notification systems
+B) Strategy Pattern
+Meaning
+
+Multiple algorithms for one task.
+
+Example
+
+Google Maps route selection.
+
+Use Cases
+Payment methods
+Sorting algorithms
+C) Command Pattern
+Meaning
+
+Encapsulates a request as an object.
+
+Example
+
+Remote control.
+
+Use Cases
+Undo functionality
+Task scheduling
+
+
+2.4 Architectural Patterns
+A) Model View Controller (MVC)
+Meaning
+
+Separates application into three parts.
+
+Model → Data
+View → User Interface
+Controller → Business Logic
+Use Cases
+Web applications
+B) Dependency Injection
+Meaning
+
+Dependencies are provided externally instead of creating them internally.
+
+Example
+
+Injecting database services.
+
+Use Cases
+Spring Framework
+Testable applications
