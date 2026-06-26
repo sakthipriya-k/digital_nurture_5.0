@@ -1,0 +1,131 @@
+Module 1 – Design Patterns and Principles
+1. SOLID Principles
+Overview
+
+SOLID is a set of five object-oriented design principles used to create clean, maintainable, scalable, and reusable software.
+
+SOLID stands for:
+
+S → Single Responsibility Principle (SRP)
+O → Open Closed Principle (OCP)
+L → Liskov Substitution Principle (LSP)
+I → Interface Segregation Principle (ISP)
+D → Dependency Inversion Principle (DIP)
+A) Single Responsibility Principle (SRP)
+Meaning
+
+One class → One responsibility.
+
+A class should have only one reason to change.
+
+Example
+class Student {}
+
+class StudentService {
+    void saveStudent(){}
+}
+
+class EmailService {
+    void sendEmail(){}
+}
+Explanation
+Student → stores student data
+StudentService → handles saving
+EmailService → handles email operations
+
+Each class performs only one responsibility.
+
+B) Open Closed Principle (OCP)
+Meaning
+
+Open for extension, Closed for modification.
+
+Add new functionality without modifying existing code.
+
+Example
+interface Payment {
+    void pay();
+}
+
+class UPI implements Payment {
+    public void pay(){}
+}
+
+class Card implements Payment {
+    public void pay(){}
+}
+Explanation
+
+New payment methods can be added by creating new classes without changing existing code.
+
+C) Liskov Substitution Principle (LSP)
+Meaning
+
+Child class should replace parent safely.
+
+Subclass behavior should not break parent expectations.
+
+Example
+class Bird {}
+
+class FlyingBird extends Bird {
+    void fly(){}
+}
+
+class Penguin extends Bird {}
+Explanation
+
+Only birds that can actually fly should implement flying behavior.
+
+D) Interface Segregation Principle (ISP)
+Meaning
+
+Do not force classes to implement unnecessary methods.
+
+Use smaller and specific interfaces.
+
+Example
+interface Work {
+    void work();
+}
+
+interface Eat {
+    void eat();
+}
+Explanation
+
+Classes implement only the interfaces they require.
+
+E) Dependency Inversion Principle (DIP)
+Meaning
+
+Depend on abstraction, not concrete implementation.
+
+Example
+interface Database {
+    void save();
+}
+
+class MySQL implements Database {
+    public void save(){}
+}
+
+class Service {
+
+    Database db;
+
+    Service(Database db){
+        this.db = db;
+    }
+}
+Explanation
+
+Service depends on Database interface instead of directly depending on MySQL.
+
+Summary
+Principle	Meaning
+SRP	One class → One responsibility
+OCP	Extend without modifying
+LSP	Child should replace parent safely
+ISP	Small and focused interfaces
+DIP	Depend on abstraction
